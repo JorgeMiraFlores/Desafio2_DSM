@@ -1,8 +1,9 @@
 package com.example.desafio2
 
-import SelectProductActivity
+
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -43,12 +44,17 @@ class MainActivity : AppCompatActivity() {
 
         if (usuariosValidos[username] == password) {
             // Login exitoso, redirigir a la pantalla de selección de productos
-            val intent = Intent(this, SelectProductActivity::class.java)
+            val intent = Intent(this, SelectProduct2::class.java)
             startActivity(intent)
-            finish()
+            //finish() Opcional, para cerrar la actividad actual si ya no es necesaria
         } else {
+            // Debug message
+            Log.d("MainActivity", "Credenciales incorrectas.")
+
             // Mostrar mensaje de error
             etPassword.error = "Credenciales incorrectas"
         }
     }
+
+
 }

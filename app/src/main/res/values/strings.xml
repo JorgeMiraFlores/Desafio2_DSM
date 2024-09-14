@@ -4,4 +4,7 @@
     <string name="iniciar_sesi_n">Iniciar sesión</string>
     <string name="nombre_de_usuario">Nombre de usuario</string>
     <string name="seleccionar_medicamentos">Seleccionar Medicamentos</string>
+    <string name="ver_carrito">Ver Carrito</string>
+    <string name="ver_historial_compras">Ver Historial de Compras</string>
+
 </resources>
