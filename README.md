@@ -1,16 +1,19 @@
-# Desafio 2
-# Farmacia Don Bosco
+# Desafio 2 - Farmacia Don Bosco
 
-## Integrantes
+  ## Integrantes
+  
+    - Jorge Nahum Mira Flores 
+  
+  ## Link del video
 
-- Jorge Nahum Mira Flores
 
-## App
-
-Nombre de App: Farmacia Don Bosco.
-
-Icono de la app:
-Una cruz roja porque es una farmacia :D
+  
+  ## App
+  
+  Nombre de App: Farmacia Don Bosco.
+  
+  Icono de la app:
+  Una cruz roja porque es una farmacia :D
 
 
 
