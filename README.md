@@ -2,7 +2,7 @@
 
   ## Integrantes
   
-    - Jorge Nahum Mira Flores 
+  - Jorge Nahum Mira Flores 
   
   ## Link del video
 
