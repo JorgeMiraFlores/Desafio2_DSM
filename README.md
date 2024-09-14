@@ -2,7 +2,7 @@
 
   ## Integrantes
   
-  - Jorge Nahum Mira Flores 
+- Jorge Nahum Mira Flores - MF232232
   
   ## Link del video
 
