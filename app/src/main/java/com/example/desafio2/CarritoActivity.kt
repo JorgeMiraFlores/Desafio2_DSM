@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -42,6 +43,16 @@ class CarritoActivity : AppCompatActivity() {
             // Guarda los datos de la compra
             guardarCompra(carrito)
 
+            // Vacía el carrito después de la compra
+            carrito.vaciarCarrito()
+
+            // Actualiza la interfaz
+            tvCarritoContenido.text = ""
+            tvTotal.text = "Total: $0.0"
+
+            // Muestra un mensaje de éxito
+            Toast.makeText(this, "Compra realizada con éxito", Toast.LENGTH_SHORT).show()
+
             // Navega a la pantalla de historial de compras
             val intent = Intent(this, HistorialComprasActivity::class.java)
             startActivity(intent)
@@ -50,9 +61,6 @@ class CarritoActivity : AppCompatActivity() {
 
     private fun guardarCompra(carrito: Carrito) {
         // Implementa la lógica para guardar la compra
-        // Esto puede implicar almacenar en una base de datos o en SharedPreferences
-        // Aquí tienes un ejemplo simple usando SharedPreferences
-
         val sharedPreferences = getSharedPreferences("Compras", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 

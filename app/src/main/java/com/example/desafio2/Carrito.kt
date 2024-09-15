@@ -35,4 +35,8 @@ data class Carrito(
             return arrayOfNulls(size)
         }
     }
+    fun vaciarCarrito() {
+        productosEnCarrito.clear()
+    }
+
 }
