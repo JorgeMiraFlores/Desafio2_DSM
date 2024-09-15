@@ -2,7 +2,9 @@ package com.example.desafio2
 
 import Carrito
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -33,5 +35,35 @@ class CarritoActivity : AppCompatActivity() {
         // Muestra el total
         val tvTotal: TextView = findViewById(R.id.tvTotal)
         tvTotal.text = "Total: $${carrito.calcularTotal()}"
+
+        // Maneja el clic en el botón "Comprar"
+        val btnComprar: Button = findViewById(R.id.btnComprar)
+        btnComprar.setOnClickListener {
+            // Guarda los datos de la compra
+            guardarCompra(carrito)
+
+            // Navega a la pantalla de historial de compras
+            val intent = Intent(this, HistorialComprasActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun guardarCompra(carrito: Carrito) {
+        // Implementa la lógica para guardar la compra
+        // Esto puede implicar almacenar en una base de datos o en SharedPreferences
+        // Aquí tienes un ejemplo simple usando SharedPreferences
+
+        val sharedPreferences = getSharedPreferences("Compras", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        val productos = carrito.obtenerProductos().joinToString(separator = ", ") {
+            "${it.nombre}: $${it.precio}"
+        }
+        val total = carrito.calcularTotal()
+
+        val historial = sharedPreferences.getString("historial", "") ?: ""
+        val nuevaCompra = "Compra: $productos - Total: $$total\n"
+        editor.putString("historial", historial + nuevaCompra)
+        editor.apply()
     }
 }
